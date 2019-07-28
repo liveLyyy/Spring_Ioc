@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="people" class="com.liyan.pojo.People">
+        <!--ref引用另外一个bean,value基本数据类型或String等,name变量名-->
+        <constructor-arg index="0" value="123"/>
+        <constructor-arg index="1" value="234"/>
+        <constructor-arg index="2" value="345"/>
+    </bean>
+<!--    <bean id="factory" class="com.liyan.pojo.PeopleFactory"></bean>-->
+<!--    <bean id="peo" factory-bean="factory" factory-method="newInstance"></bean>-->
+
+<!--    <bean id="peo1" class="com.liyan.pojo.PeopleFactory" factory-method="newInstance"/>-->
+
+    <bean id="peo" class="com.liyan.pojo.People">
+        <property name="id" value="22"/>
+        <property name="name" value="张三"/>
+        <property name="age" value="20"/>
+        <property name="sets">
+            <set>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+            </set>
+        </property>
+        <property name="list" value="1,2,3">
+        </property>
+        <property name="strings">
+            <array>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </array>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="1" value="2"/>
+            </map>
+        </property>
+        <property name="desk" ref="desk"/>
+
+    </bean>
+    <bean id="desk" class="com.liyan.pojo.Desk"/>
+</beans>
